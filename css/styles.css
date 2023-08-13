@@ -80,14 +80,17 @@ body {
 
 .page-header {
   border-bottom: 1px solid var(--another-color);
-  padding-top: 24px;
-  padding-bottom: 24px;
 }
 
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.logotype,
+.menu-link {
+  display: block;
 }
 
 .page-navigation {
@@ -156,6 +159,13 @@ address {
 
 .hero {
   background-color: var(--main-color);
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/background_image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 188px 0;
 }
 
@@ -208,6 +218,13 @@ address {
 
 .benefits-list-item {
   flex-basis: calc((100% - 3 * 24px) / 4);
+}
+
+.ben-icons {
+  border-radius: 4px;
+  background: var(--secondary-color);
+  margin-bottom: 8px;
+  padding: 24px 100px;
 }
 
 .benefits-list-title {
@@ -266,8 +283,45 @@ address {
 
 .team-position {
   text-align: center;
+  margin-bottom: 8px;
 }
 
+.soсial-list {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-content: center;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+}
+
+.social-list-icon {
+  fill: var(--secondary-color);
+}
+
+.customers-list {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.customers-list-item {
+  flex-basis: calc((100% - 5 * 24px) / 6);
+  border-radius: 4px;
+  border: 1px solid #8e8f99;
+  padding: 16px 32px;
+}
+.customers-icon {
+  fill: #8e8f99;
+}
 .portfolio {
   padding-top: 96px;
   padding-bottom: 120px;
@@ -344,6 +398,5 @@ address {
 
 .footer-text {
   color: var(--secondary-color);
-  margin-top: 16px;
   max-width: 264px;
 }
