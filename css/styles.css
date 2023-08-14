@@ -6,7 +6,6 @@
   --text-btn-color: #ffffff;
   --active-color: #404bbf;
   --another-color: #e7e9fc;
-  --transition-dur-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 h1,
@@ -81,6 +80,9 @@ body {
 
 .page-header {
   border-bottom: 1px solid var(--another-color);
+  box-shadow: 0px 1px 6px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 2px 1px 0px rgba(46, 47, 66, 0.08);
 }
 
 .header-container {
@@ -132,7 +134,7 @@ body {
   color: var(--main-color);
   padding-top: 24px;
   padding-bottom: 24px;
-  transition: color var(--transition-dur-func);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu-link:hover,
@@ -145,14 +147,14 @@ body {
 }
 
 .menu-link.current {
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
-  padding-bottom: 0px;
+  position: relative;
 }
 
 .current::after {
   content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
   display: block;
   width: 100%;
   height: 4px;
@@ -172,7 +174,7 @@ address {
 
 .contact-link {
   color: var(--third-color);
-  transition: color var(--transition-dur-func);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-link:hover,
@@ -188,6 +190,7 @@ address {
     ),
     url(../images/background_image.jpg);
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   max-width: 1440px;
   padding: 188px 0;
@@ -218,12 +221,12 @@ address {
   padding: 16px 32px;
   margin: 0 auto;
   min-width: 169px;
-  transition: background var(--transition-dur-func);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-button:hover,
 .hero-button:focus {
-  background: var(--active-color);
+  background-color: var(--active-color);
 }
 
 .section-title {
@@ -246,6 +249,10 @@ address {
 }
 
 .ben-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 112px;
   border-radius: 4px;
   background: var(--secondary-color);
   margin-bottom: 8px;
@@ -311,14 +318,14 @@ address {
   margin-bottom: 8px;
 }
 
-.soсial-list {
+.social-list {
   display: flex;
   align-items: center;
   gap: 24px;
   justify-content: center;
 }
 
-.soсial-list-item {
+.social-list-item {
   width: 40px;
   height: 40px;
 }
@@ -331,7 +338,7 @@ address {
   height: 100%;
   border-radius: 50%;
   background-color: var(--accent-color);
-  transition: background-color var(--transition-dur-func);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link:hover,
@@ -350,25 +357,32 @@ address {
 }
 
 .customers-list-item {
-  flex-basis: calc((100% - 5 * 24px) / 6);
+  flex-basis: calc((100% - 120px) / 6);
+  height: 88px;
+}
+
+.customers-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8e8f99;
+  width: 100%;
+  height: 100%;
   border-radius: 4px;
   border: 1px solid #8e8f99;
   padding: 16px 32px;
-  transition: border var(--transition-dur-func);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .customers-icon {
-  fill: #8e8f99;
-  transition: fill var(--transition-dur-func);
+  fill: currentColor;
 }
 
-.customers-list-item:hover,
-.customers-list-item:focus {
-  border: 1px solid var(--active-color);
-}
-
-.customers-list-item:hover .customers-icon,
-.customers-list-item:focus .customers-icon {
-  fill: var(--active-color);
+.customers-link:hover,
+.customers-link:focus {
+  border-color: 1px solid var(--active-color);
+  color: var(--active-color);
 }
 
 .portfolio {
@@ -396,9 +410,10 @@ address {
   text-align: center;
   border-radius: 4px;
   border: 1px solid var(--another-color);
-  transition: background var(--transition-dur-func),
-    color var(--transition-dur-func), border var(--transition-dur-func),
-    box-shadow var(--transition-dur-func);
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filters-button:hover,
@@ -421,6 +436,17 @@ address {
   width: calc((100% - 2 * 24px) / 3);
 }
 
+.card-list-link {
+  display: block;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-list-link:hover,
+.card-list-link:focus {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
 .card-list-img-wrapper {
   position: relative;
   overflow: hidden;
@@ -433,11 +459,11 @@ address {
   width: 100%;
   height: 100%;
   color: var(--secondary-color);
-  padding-top: 40px;
+  padding: 40px 32px;
   text-align: center;
   background-color: var(--accent-color);
   transform: translateY(100%);
-  transition: transform var(--transition-dur-func);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-list-item:hover .overlay {
@@ -469,7 +495,13 @@ address {
 .page-footer .container {
   display: flex;
   gap: 120px;
+  align-items: baseline;
 }
+
+.footer-logo-and-text {
+  margin-right: 120px;
+}
+
 .page-footer .logotype {
   display: inline-block;
   margin-bottom: 16px;
@@ -482,11 +514,10 @@ address {
 
 .social-media {
   display: inline-flex;
-  gap: 16px;
   flex-direction: column;
 }
 
-.social-media .soсial-list {
+.social-media .social-list {
   justify-content: flex-start;
   align-items: flex-start;
 }
@@ -494,6 +525,7 @@ address {
 .social-media-text {
   color: var(--text-btn-color);
   font-weight: 500;
+  margin-bottom: 16px;
 }
 
 .backdrop {
@@ -504,8 +536,8 @@ address {
   width: 100%;
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
-  transition: opacity var(--transition-dur-func),
-    visibility var(--transition-dur-func);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .is-hidden {
@@ -517,7 +549,7 @@ address {
 .modal {
   position: absolute;
   width: 408px;
-  height: 584px;
+  min-height: 584px;
   border-radius: 4px;
   background: #fcfcfc;
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
@@ -534,22 +566,25 @@ address {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
   width: 24px;
   height: 24px;
   background-color: var(--another-color);
   stroke-width: 1px;
-  stroke: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
-  transition: background-color var(--transition-dur-func);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close-button:hover {
   background-color: var(--active-color);
+  border: none;
 }
 
 .close-button-icon {
   fill: var(--main-color);
-  transition: fill var(--transition-dur-func);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close-button:hover .close-button-icon {
