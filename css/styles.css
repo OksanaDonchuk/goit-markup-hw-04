@@ -357,7 +357,7 @@ address {
 }
 
 .customers-list-item {
-  flex-basis: calc((100% - 120px) / 6);
+  width: calc((100% - 120px) / 6);
   height: 88px;
 }
 
@@ -410,9 +410,9 @@ address {
   text-align: center;
   border-radius: 4px;
   border: 1px solid var(--another-color);
-  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -466,7 +466,8 @@ address {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.card-list-item:hover .overlay {
+.card-list-item:hover .overlay,
+.card-list-item:focus .overlay {
   transform: translateY(0%);
 }
 
@@ -518,8 +519,14 @@ address {
 }
 
 .social-media .social-list {
+  gap: 16px;
   justify-content: flex-start;
   align-items: flex-start;
+}
+
+.social-media .social-link:hover,
+.social-media .social-link:focus {
+  background-color: #31d0aa;
 }
 
 .social-media-text {
@@ -557,6 +564,7 @@ address {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close-button {
@@ -577,7 +585,8 @@ address {
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.close-button:hover {
+.close-button:hover,
+.close-button:focus {
   background-color: var(--active-color);
   border: none;
 }
@@ -587,6 +596,7 @@ address {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.close-button:hover .close-button-icon {
+.close-button:hover .close-button-icon,
+.close-button:focus .close-button-icon {
   fill: var(--text-btn-color);
 }
